@@ -10,13 +10,15 @@ function App() {
   // ACTIVIDAD UNO
   const [input_uno , set_num_uno] =useState(1);
   const [input_dos , set_num_dos] =useState(1);
-  const [operacion_resultado , set_resultado] = useState();
+  const [operacion_resultado , set_resultado] = useState(0);
   let operacion = ["SUMA","RESTA","MULTIPLICACION","DIVISION"];
 
   // ACTIVIDAD DOS
   const listaCiudades = ["Bogota","Cali","Bogota","Medellin",
                         "Bogota","Medellin","Bogota","Cali",
                         "Bogota","Neiva","Bogota","Cali","Bogota","Medellin"];
+
+  const [result_lista,set_lista_result]=useState("CLICK BUTTON");               
 
 const suma_numeros = () =>{
   set_resultado (parseFloat(input_uno) + parseFloat(input_dos));
@@ -41,8 +43,35 @@ const add_value_to_num_dos = (n_dos) =>{
  
 
 const calculo_ciudades = () =>{
+  let duplicados=[];
+  let cantidad=[];
+  let ciudades_cantidad=[];
+  let count=0;
+  for(let i=0;i< listaCiudades.length;++i){
+      
+      if(i+1<listaCiudades.length && listaCiudades.slice(i+1).indexOf(listaCiudades[i])!=-1&& duplicados.indexOf(listaCiudades[i])==-1){
+          duplicados.push(listaCiudades[i]);
+      }
+  }
+  
+  
+  for(let f =0 ;f<duplicados.length ;++f){
+    listaCiudades.forEach(function(element){
+          if(duplicados[f]===element){
+            count ++;
+          }
+      });
+      cantidad.push(count);
+      count =0;
+  }
+  
+  for(let y=0; y<duplicados.length ; ++y){
+      ciudades_cantidad.push("[" + cantidad[y] + " " + " " + duplicados[y] + "]  ");
+     
+  }
 
-
+  set_lista_result (ciudades_cantidad);
+  
 }
 
 
@@ -95,23 +124,24 @@ const calculo_ciudades = () =>{
         </div>
       </div>
 
+      <hr/>
       <div className=" mt-2 container navbar navbar-expand-lg navbar-dark bg-dark  align-items-center">
         <h3 className="col-sm col-7 navbar-brand align-items-center">RETORNO DE LISTA</h3>
       </div>
 
-      <div class = "read mt-2">
-        <div className="Content_Postsm">
-            <div  className="col-sm col-7"></div>
-            <div  className="col-sm col-7 bg-light text-dark text-center"><h3> lista </h3></div>
-            <div  className="col-sm col-7"></div>
-        </div>
-      </div>
 
       <div className="container text-center mt-2">
         <div className="col align-items-center">
           <div className="Content_Postss">
-            <button onClick={calculo_ciudades} className="col-sm col-7 btn btn-light btn-outline-dark butt" type="button">lista</button>
+            <button onClick={calculo_ciudades} className="col-sm col-7 btn btn-light btn-outline-dark butt" type="button">LISTA</button>
           </div>
+        </div>
+      </div>
+      <div class = "read mt-2">
+        <div className="Content_Postsm">
+            <div  className="col-sm col-7"></div>
+            <div  className="col-sm col-7 bg-light text-dark text-center"><h3>{result_lista} </h3></div>
+            <div  className="col-sm col-7"></div>
         </div>
       </div>
 
