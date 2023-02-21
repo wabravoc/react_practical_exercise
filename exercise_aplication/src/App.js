@@ -1,24 +1,123 @@
-import logo from './logo.svg';
 import './App.css';
+import './static/css_file.css'
+import React , {useState} from 'react';
+
+
+
 
 function App() {
+
+  // ACTIVIDAD UNO
+  const [input_uno , set_num_uno] =useState(1);
+  const [input_dos , set_num_dos] =useState(1);
+  const [operacion_resultado , set_resultado] = useState();
+  let operacion = ["SUMA","RESTA","MULTIPLICACION","DIVISION"];
+
+  // ACTIVIDAD DOS
+  const listaCiudades = ["Bogota","Cali","Bogota","Medellin",
+                        "Bogota","Medellin","Bogota","Cali",
+                        "Bogota","Neiva","Bogota","Cali","Bogota","Medellin"];
+
+const suma_numeros = () =>{
+  set_resultado (parseFloat(input_uno) + parseFloat(input_dos));
+}
+
+const resta_numeros = () =>{
+  set_resultado (parseFloat(input_uno) - parseFloat(input_dos));
+}
+const multiplicacion_numeros = () =>{
+  set_resultado (parseFloat(input_uno) * parseFloat(input_dos));
+}
+const division_numeros = () =>{
+  set_resultado (parseFloat(input_uno) / parseFloat(input_dos));
+}
+
+const add_value_to_num_uno = (n_uno) =>{
+  set_num_uno(n_uno.target.value);
+}
+const add_value_to_num_dos = (n_dos) =>{
+  set_num_dos(n_dos.target.value);
+}
+ 
+
+const calculo_ciudades = () =>{
+
+
+}
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="fondo_de_pantalla read">
+      <div className=" container navbar navbar-expand-lg navbar-dark bg-dark  align-items-center">
+        <h3 className="col-sm col-7 navbar-brand align-items-center">OPERACION MATEMATICA</h3>
+      </div>
+
+
+      <div className="container text-center mt-2">
+        <div className="col align-items-center">
+          <div className="row">
+            <div className="col-8">
+            <input onChange={add_value_to_num_uno} value={input_uno} type="number"  class="form-control " placeholder="PRIMER NUMERO" />
+            </div>
+            <div className="col-8">
+            <input onChange={add_value_to_num_dos} value={input_dos} type="number" class="form-control " placeholder="SEGUNDO NUMERO" />
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <div className="container text-center mt-2">
+        <div className="col align-items-center">
+          <div className="Content_Postss">
+            <button onClick={suma_numeros} className="col-sm col-7 btn btn-light btn-outline-dark butt" type="button">{operacion[0]}</button>
+          </div>
+          <div  className="Content_Postss">
+            <button onClick={resta_numeros} className="col-sm col-7 btn btn-light btn-outline-dark butt" type="button">{operacion[1]}</button>
+          </div>
+          <div  className="Content_Postss">
+            <button onClick={multiplicacion_numeros} className="col-sm col-7 btn btn-light btn-outline-dark butt" type="button">{operacion[2]}</button>
+          </div>
+          <div  className="Content_Postss">
+            <button onClick={division_numeros} className="col-sm col-7 btn btn-light btn-outline-dark butt" type="button">{operacion[3]}</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class = "read mt-2">
+        <div className="Content_Postsm">
+            <div  className="col-sm col-7"></div>
+            <div  className="col-sm col-7 bg-light text-dark text-center"><h3> {operacion_resultado} </h3></div>
+            <div  className="col-sm col-7"></div>
+        </div>
+      </div>
+
+      <div className=" mt-2 container navbar navbar-expand-lg navbar-dark bg-dark  align-items-center">
+        <h3 className="col-sm col-7 navbar-brand align-items-center">RETORNO DE LISTA</h3>
+      </div>
+
+      <div class = "read mt-2">
+        <div className="Content_Postsm">
+            <div  className="col-sm col-7"></div>
+            <div  className="col-sm col-7 bg-light text-dark text-center"><h3> lista </h3></div>
+            <div  className="col-sm col-7"></div>
+        </div>
+      </div>
+
+      <div className="container text-center mt-2">
+        <div className="col align-items-center">
+          <div className="Content_Postss">
+            <button onClick={calculo_ciudades} className="col-sm col-7 btn btn-light btn-outline-dark butt" type="button">lista</button>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+  
   );
 }
 

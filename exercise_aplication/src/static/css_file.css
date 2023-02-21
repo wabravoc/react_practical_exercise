@@ -1,0 +1,50 @@
+.fondo_de_pantalla{
+    color:rgb(48, 46, 46);
+    background-color:white ;
+}
+
+
+.butt {
+    margin: 3px;
+  }
+  .Content_Posts {
+  display: grid;
+  position: relative;
+  grid-template-columns: auto 20rem 20rem auto;
+  background-color: white;
+  }
+  .Content_Postss {
+  display: grid;
+  position: relative;
+  grid-template-columns: auto;
+  background-color: white;
+  }
+  .Content_Postsm {
+  display: grid;
+  position: relative;
+  grid-template-columns: auto 40rem auto;
+  background-color: white;
+  }
+  .Content_Postsb {
+  display: grid;
+  position: relative;
+  grid-template-columns: auto 3rem 7rem 3rem 7rem 10rem 10rem auto;
+  background-color: white;
+  }
+  .read {
+  color: white;
+  height: auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto;
+  min-width: 0;
+  background-clip: border-box;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 0.25rem;
+  margin: 3px;
+  }
+  .item-pagination{
+  color: dimgrey;
+  background-clip: border-box;
+  border: 2px solid rgb(0, 0, 0);
+  }
