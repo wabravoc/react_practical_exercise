@@ -25,12 +25,7 @@
   grid-template-columns: auto 40rem auto;
   background-color: white;
   }
-  .Content_Postsb {
-  display: grid;
-  position: relative;
-  grid-template-columns: auto 3rem 7rem 3rem 7rem 10rem 10rem auto;
-  background-color: white;
-  }
+
   .read {
   color: white;
   height: auto;
@@ -42,9 +37,4 @@
   border: 2px solid rgb(255, 255, 255);
   border-radius: 0.25rem;
   margin: 3px;
-  }
-  .item-pagination{
-  color: dimgrey;
-  background-clip: border-box;
-  border: 2px solid rgb(0, 0, 0);
   }
